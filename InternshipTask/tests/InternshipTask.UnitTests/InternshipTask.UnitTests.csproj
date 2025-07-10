@@ -1,15 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+    
     <ItemGroup>
-      <ProjectReference Include="..\..\src\InternshipTask.Application\InternshipTask.Application.csproj" />
+        <PackageReference Include="FluentAssertions" Version="6.12.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+        <PackageReference Include="xunit" Version="2.4.5" />
+        <PackageReference Include="Moq" Version="4.20.72" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" />
-        <PackageReference Include="xunit" />
-        <PackageReference Include="xunit.runner.visualstudio" />
-        <PackageReference Include="FluentAssertions" />
-        <PackageReference Include="Moq" />
+        <ProjectReference Include="..\..\src\InternshipTask.Api\InternshipTask.Api.csproj" />
+        <ProjectReference Include="..\..\src\InternshipTask.Application\InternshipTask.Application.csproj" />
+        <ProjectReference Include="..\..\src\InternshipTask.Infrastructure\InternshipTask.Infrastructure.csproj" />
     </ItemGroup>
     
 </Project>
