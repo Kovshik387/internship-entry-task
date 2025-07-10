@@ -19,17 +19,17 @@ services:
             - postgres-data:/var/lib/postgresql/data
 
     XO_api:
-         image: ${DOCKER_REGISTRY}api
+         image: ${DOCKER_REGISTRY-}api
          container_name: X0-api
          build: 
              context: .
-             dockerfile: ./src/InternshipTask.Api/DockerFile
+             dockerfile: ./src/InternshipTask.Api/Dockerfile
          networks:
              - dev
          ports:
              - "8080:8080"
          depends_on:
-             - postgres_db
+             - postgres
 
 volumes:
     postgres-data:
