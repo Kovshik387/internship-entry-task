@@ -9,7 +9,7 @@ using Xunit;
 
 namespace InternshipTask.IntegrationTests.ControllersTests;
 [CollectionDefinition(nameof(TestFixture))]
-public class GameControllerTests : IClassFixture<ApiFixture<Program>>
+public class GameControllerTests : IClassFixture<TestFixture>, IClassFixture<ApiFixture<Program>>
 {
     private readonly HttpClient _client;
     
