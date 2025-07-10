@@ -50,9 +50,10 @@ jobs:
         done
 
     - name: Run tests
+      working-directory: InternshipTask
       run: |
-        dotnet test ./InternshipTask/tests/InternshipTask.UnitTests/InternshipTask.UnitTests.csproj
-        dotnet test ./InternshipTask/tests/InternshipTask.IntegrationTests/InternshipTask.IntegrationTests.csproj
+        dotnet test ./tests/InternshipTask.UnitTests/InternshipTask.UnitTests.csproj
+        dotnet test ./tests/InternshipTask.IntegrationTests/InternshipTask.IntegrationTests.csproj
 
     - name: Shutdown containers
       run: docker compose down
