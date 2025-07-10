@@ -1,0 +1,35 @@
+name: X0
+
+networks:
+    dev:
+        driver: bridge
+
+services:
+    postgres:
+        image: postgres:latest
+        container_name: postgres
+        environment:
+            POSTGRES_NAME: 'postgres'
+            POSTGRES_PASSWORD: 'SuperStrongPassword'
+        ports:
+            - "5433:5432"
+        networks:
+            - dev
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+
+    XO_api:
+         image: ${DOCKER_REGISTRY}api
+         container_name: X0-api
+         build: 
+             context: .
+             dockerfile: ./src/InternshipTask.Api/DockerFile
+         networks:
+             - dev
+         ports:
+             - "8080:8080"
+         depends_on:
+             - postgres_db
+
+volumes:
+    postgres-data:

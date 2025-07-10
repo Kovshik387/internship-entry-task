@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    
+    <ItemGroup>
+      <Content Include="..\..\src\InternshipTask.Api\appsettings.json">
+        <Link>appsettings.json</Link>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\InternshipTask.Api\InternshipTask.Api.csproj" />
+        <ProjectReference Include="..\..\src\InternshipTask.Application\InternshipTask.Application.csproj" />
+        <ProjectReference Include="..\..\src\InternshipTask.Infrastructure\InternshipTask.Infrastructure.csproj" />
+    </ItemGroup>
+    
+</Project>

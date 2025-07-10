@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InternshipTask.Application\InternshipTask.Application.csproj" />
+      <ProjectReference Include="..\InternshipTask.Infrastructure\InternshipTask.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
