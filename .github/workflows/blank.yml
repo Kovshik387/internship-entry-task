@@ -56,4 +56,6 @@ jobs:
         dotnet test ./tests/InternshipTask.IntegrationTests/InternshipTask.IntegrationTests.csproj
 
     - name: Shutdown containers
-      run: docker compose down
+      run: | 
+        cd InternshipTask  
+        docker compose down
