@@ -33,6 +33,7 @@ jobs:
 
     - name: Build and start docker-compose
       run: |
+        cd InternshipTask
         docker compose up -d --build
 
     - name: Wait for Postgres to be ready
