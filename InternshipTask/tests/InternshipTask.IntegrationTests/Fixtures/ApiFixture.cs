@@ -35,8 +35,8 @@ public class ApiFixture<TProgram> : WebApplicationFactory<TProgram> where TProgr
         
         var host = base.CreateHost(builder);
         
-        ClearDatabase(host);
-        host.MigrateUp();
+        // ClearDatabase(host);
+        // host.MigrateUp();
 
         return host;
     }
