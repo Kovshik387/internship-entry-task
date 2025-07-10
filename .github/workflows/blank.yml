@@ -33,7 +33,7 @@ jobs:
 
     - name: Build and start docker-compose
       run: |
-        docker-compose -f docker-compose.yml up -d --build
+        docker-compose -f InternshipTask/docker-compose.yml up -d --build
 
     - name: Wait for Postgres to be ready
       run: |
