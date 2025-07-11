@@ -1,4 +1,6 @@
 ﻿using InternshipTask.Application.Exceptions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Primitives;
 
 namespace InternshipTask.Api.Middleware;
@@ -54,11 +56,16 @@ public class ExceptionMiddleware
     private static async Task WriteErrorAsync(HttpContext context, int statusCode, string message)
     {
         context.Response.StatusCode = statusCode;
-        context.Response.ContentType = "application/json";
-        await context.Response.WriteAsJsonAsync(new
+        context.Response.ContentType = "application/problem+json";
+
+        var problemDetails = new ProblemDetails
         {
-            error = message,
-            status = statusCode
-        });
+            Title = ReasonPhrases.GetReasonPhrase(statusCode),
+            Status = statusCode,
+            Detail = message,
+            Instance = context.Request.Path
+        };
+
+        await context.Response.WriteAsJsonAsync(problemDetails);
     }
 }

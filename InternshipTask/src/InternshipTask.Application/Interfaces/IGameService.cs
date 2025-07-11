@@ -4,7 +4,7 @@ namespace InternshipTask.Application.Interfaces;
 
 public interface IGameService
 {
-    Task<Guid> CreateGameAsync(Guid playerIdX, Guid playerIdO, CancellationToken cancellationToken = default);
+    Task<Guid> CreateGameAsync(CreateGameDto dto, CancellationToken cancellationToken = default);
 
     Task<GameStateDto> GetGameAsync(Guid gameId, CancellationToken cancellationToken = default);
 

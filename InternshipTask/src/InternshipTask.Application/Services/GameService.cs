@@ -39,7 +39,7 @@ public class GameService : IGameService
         _dateTimeProvider = dateTimeProvider;
     }
 
-    public async Task<Guid> CreateGameAsync(Guid playerIdX, Guid playerIdO, CancellationToken cancellationToken = default)
+    public async Task<Guid> CreateGameAsync(CreateGameDto dto, CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
         
@@ -52,11 +52,11 @@ public class GameService : IGameService
         var gameModel = new GameModel()
         {
             Id = Guid.NewGuid(),
-            PlayerIdO = playerIdO,
-            PlayerIdX = playerIdX,
+            PlayerIdO = dto.PlayerIdO,
+            PlayerIdX = dto.PlayerIdX,
             WinLength = _ruleOptions.WinLength,
             BoardSize = _ruleOptions.Size,
-            CurrentPlayerId = playerIdX,
+            CurrentPlayerId = dto.PlayerIdX,
             GameCreatedAt = _dateTimeProvider.Now.UtcDateTime,
             Status = GameStatus.NotOver
         };

@@ -1,5 +1,4 @@
-﻿using InternshipTask.Api.DTOs;
-using InternshipTask.Application.DTOs;
+﻿using InternshipTask.Application.DTOs;
 using InternshipTask.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
@@ -19,7 +18,7 @@ public sealed class GameController : ControllerBase
     [ProducesResponseType(typeof(Guid),StatusCodes.Status201Created)]
     public async Task<IActionResult> CreateGame([FromBody] CreateGameDto dto, CancellationToken token)
     {
-        var id = await _gameService.CreateGameAsync(dto.PlayerIdX, dto.PlayerIdO, token);
+        var id = await _gameService.CreateGameAsync(dto, token);
         return StatusCode(StatusCodes.Status201Created, id);
     }
 

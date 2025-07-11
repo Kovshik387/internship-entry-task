@@ -1,4 +1,4 @@
-﻿namespace InternshipTask.Api.DTOs;
+﻿namespace InternshipTask.Application.DTOs;
 
 public record CreateGameDto
 {

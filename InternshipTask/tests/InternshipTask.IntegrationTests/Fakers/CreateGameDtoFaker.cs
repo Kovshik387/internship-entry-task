@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using InternshipTask.Api.DTOs;
+using InternshipTask.Application.DTOs;
 
 namespace InternshipTask.IntegrationTests.Fakers;
 

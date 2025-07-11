@@ -1,3 +1,4 @@
+using InternshipTask.Api.Extensions;
 using InternshipTask.Api.Middleware;
 using InternshipTask.Application.Extensions;
 using InternshipTask.Domain.Extensions;
@@ -8,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 builder.Services.AddHealthChecks();
-        
+
+builder.Services.AddFluentValidation(builder.Configuration);
 builder.Services.AddApplicationLayer(builder.Configuration);
 builder.Services.AddInfrastructure(builder.Configuration);
 
